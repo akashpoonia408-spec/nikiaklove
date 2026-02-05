@@ -64,7 +64,7 @@ button{
 }
 
 #loveGifBox img{
-  width:160px;
+  width:180px; /* Thoda bada kiya hai cat GIF ke liye */
   border-radius:20px;
   box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
@@ -118,9 +118,8 @@ const gallery=document.getElementById("gallery");
 
 let accepted=false;
 
-/* NO BUTTON MESSAGES - Akash's Personalized List */
 const noMessages=[
-"No", "Ek baar aur soch lo na 💗", "Itna bhi mushkil nahi hai YES bol p13 🥹", 
+"No", "Ek baar aur soch lo na 💗", "Itna bhi mushkil nahi hai YES bolna 🥹", 
 "Dil se poocho, jawab YES hi aayega 💕", "Main yahin wait kar raha hoon ⏳",
 "Ye NO thoda fake lag raha hai 👀", "Last chance… pakka wala 😭",
 "Ab NO bolna allowed nahi hai 🚫", "Dil ka decision lo, ego ka nahi 💓", "YES likha hai kismat me ✨"
@@ -138,7 +137,7 @@ function moveNo(){
 noBtn.addEventListener("mouseover",moveNo);
 noBtn.addEventListener("touchstart",moveNo);
 
-/* FLOATING PHOTOS - Updated p1 to p13 as requested */
+/* 13 PHOTOS GALLERY */
 const photos=[
     "p1.jpeg", "p2.jpeg", "p3.jpeg", "p4.jpeg", "p5.jpeg", 
     "p6.jpeg", "p7.jpeg", "p8.jpeg", "p9.jpeg", "p10.jpeg", 
@@ -191,15 +190,16 @@ yesBtn.onclick=()=>{
   document.body.appendChild(conf);
  }
 
+ // AAPKA CAT KISS GIF LINK YAHAN HAI
  loveGifBox.innerHTML =
- '<img src="https://media.tenor.com/97y_7S6y_S8AAAAi/bears-with-hearts-love.gif">';
+ '<img src="https://media.tenor.com/FbeS3s_Sc_gAAAAC/cat-cat-meme.gif" alt="Cat Kiss GIF">';
 
  msg.innerHTML="<h1>I KNEW YOU LOVE ME ❤️</h1>";
  typeWriter();
  setTimeout(showGifts,5000); 
 };
 
-/* GIFTS - Updated with specific dates/messages */
+/* BOXES SURPRISE */
 function showGifts(){
  const giftBox=document.createElement("div");
  giftBox.className="gifts";
