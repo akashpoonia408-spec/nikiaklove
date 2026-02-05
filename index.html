@@ -14,7 +14,7 @@ body{
   background:linear-gradient(45deg,#ff4e88,#ff8fab,#ffc2d1);
   color:white;
 }
-.card{ margin-top:15vh; padding:20px; }
+.card{ margin-top:15vh; padding:20px; position: relative; z-index: 10; }
 
 button{
   padding:15px 25px;
@@ -64,7 +64,7 @@ button{
 }
 
 #loveGifBox img{
-  width:180px; /* Thoda bada kiya hai cat GIF ke liye */
+  width:180px; 
   border-radius:20px;
   box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
@@ -76,6 +76,7 @@ button{
   display:flex;
   justify-content:center;
   gap:15px;
+  z-index: 20;
 }
 .gift{
   font-size:40px;
@@ -137,7 +138,7 @@ function moveNo(){
 noBtn.addEventListener("mouseover",moveNo);
 noBtn.addEventListener("touchstart",moveNo);
 
-/* 13 PHOTOS GALLERY */
+/* 13 PHOTOS FROM p1.jpeg TO p13.jpeg */
 const photos=[
     "p1.jpeg", "p2.jpeg", "p3.jpeg", "p4.jpeg", "p5.jpeg", 
     "p6.jpeg", "p7.jpeg", "p8.jpeg", "p9.jpeg", "p10.jpeg", 
@@ -148,10 +149,10 @@ setInterval(()=>{
  const img=document.createElement("img");
  img.src=photos[Math.floor(Math.random()*photos.length)];
  img.className="floatPhoto";
- img.style.left=Math.random()*100+"vw";
+ img.style.left=Math.random()*90+"vw";
  gallery.appendChild(img);
  setTimeout(()=>img.remove(),8000);
-},2500);
+},2200);
 
 /* TYPEWRITER NAZAM */
 const poem=`Tum meri zindagi the,
@@ -190,9 +191,9 @@ yesBtn.onclick=()=>{
   document.body.appendChild(conf);
  }
 
- // AAPKA CAT KISS GIF LINK YAHAN HAI
+ // Fixed Your Local GIF File
  loveGifBox.innerHTML =
- '<img src="https://media.tenor.com/FbeS3s_Sc_gAAAAC/cat-cat-meme.gif" alt="Cat Kiss GIF">';
+ '<img src="Kisses Love GIF.gif" alt="Cat Kiss">';
 
  msg.innerHTML="<h1>I KNEW YOU LOVE ME ❤️</h1>";
  typeWriter();
