@@ -25,14 +25,17 @@ button{
   cursor:pointer;
   transition: 0.3s;
 }
-#yes{background:#00ff9d; font-weight: bold;}
+#yes{background:#00ff9d; font-weight: bold; color: #1a5c41;}
 #no{background:#ff3c3c;color:white;}
 
 .floatPhoto{
   position:fixed;
   width:90px;
+  height: 120px;
+  object-fit: cover;
   border-radius:12px;
-  top:-100px;
+  border: 3px solid white;
+  top:-150px;
   animation:fallPhoto 8s linear forwards;
   z-index: -1;
 }
@@ -53,7 +56,7 @@ button{
 #poemBox{
   max-width:320px;
   margin:20px auto;
-  font-size:22px; /* Thoda bada kiya hai taaki lines highlight hon */
+  font-size:22px; 
   line-height:1.8;
   min-height:120px;
   font-weight: bold;
@@ -97,7 +100,7 @@ button{
 <div class="card">
   <h1>Will You Be My Valentine baby? ❤️</h1>
   <button id="yes">YES</button>
-  <button id="no">NO</button>
+  <button id="no">No</button>
   <div id="message"></div>
   <div id="loveGifBox"></div>
   <div id="poemBox"></div>
@@ -115,10 +118,12 @@ const gallery=document.getElementById("gallery");
 
 let accepted=false;
 
-/* NO BUTTON MESSAGES */
+/* NO BUTTON MESSAGES - Akash's Personalized List */
 const noMessages=[
-"No","Are you sure mere baby? 🥺","Really sure baby?",
-"mera dil mat todo 💔","Pleease maan jao","Ab toh YES bol do 🥰"
+"No", "Ek baar aur soch lo na 💗", "Itna bhi mushkil nahi hai YES bol p13 🥹", 
+"Dil se poocho, jawab YES hi aayega 💕", "Main yahin wait kar raha hoon ⏳",
+"Ye NO thoda fake lag raha hai 👀", "Last chance… pakka wala 😭",
+"Ab NO bolna allowed nahi hai 🚫", "Dil ka decision lo, ego ka nahi 💓", "YES likha hai kismat me ✨"
 ];
 let noIndex=0;
 
@@ -133,8 +138,13 @@ function moveNo(){
 noBtn.addEventListener("mouseover",moveNo);
 noBtn.addEventListener("touchstart",moveNo);
 
-/* FLOATING PHOTOS */
-const photos=["p1.jpeg","p2.jpeg","p3.jpeg","p4.jpeg","p5.jpeg"];
+/* FLOATING PHOTOS - Updated p1 to p13 as requested */
+const photos=[
+    "p1.jpeg", "p2.jpeg", "p3.jpeg", "p4.jpeg", "p5.jpeg", 
+    "p6.jpeg", "p7.jpeg", "p8.jpeg", "p9.jpeg", "p10.jpeg", 
+    "p11.jpeg", "p12.jpeg", "p13.jpeg"
+];
+
 setInterval(()=>{
  const img=document.createElement("img");
  img.src=photos[Math.floor(Math.random()*photos.length)];
@@ -144,10 +154,10 @@ setInterval(()=>{
  setTimeout(()=>img.remove(),8000);
 },2500);
 
-/* TYPEWRITER NAZAM - FIXED ONLY TO YOUR LINES */
+/* TYPEWRITER NAZAM */
 const poem=`Tum meri zindagi the,
-tum mere zindagi ho,
-aur tum meri zindagi rahoge. `;
+tum meri zindagi ho,
+aur tum meri zindagi rahoge. ❤️`;
 
 function typeWriter(){
  let i=0;
@@ -155,7 +165,7 @@ function typeWriter(){
    if(i<poem.length){
      poemBox.innerHTML+=poem.charAt(i);
      i++;
-     setTimeout(typing,100); // Thoda slow kiya taaki feel aaye
+     setTimeout(typing,100);
    }
  }
  typing();
@@ -186,22 +196,23 @@ yesBtn.onclick=()=>{
 
  msg.innerHTML="<h1>I KNEW YOU LOVE ME ❤️</h1>";
  typeWriter();
- setTimeout(showGifts,5000); // 5 sec baad gifts dikhenge
+ setTimeout(showGifts,5000); 
 };
 
-/* GIFTS */
+/* GIFTS - Updated with specific dates/messages */
 function showGifts(){
  const giftBox=document.createElement("div");
  giftBox.className="gifts";
  giftBox.innerHTML=`
-  <div class="gift" onclick="openGift(this,'Meri har khushi, sirf tumse. ❤️')">🎁</div>
-  <div class="gift" onclick="openGift(this,'Tum ho, toh sab kuch hai. 💕')">🎁</div>
-  <div class="gift" onclick="openGift(this,'Hamesha mere rehna. 😘')">🎁</div>
+  <div class="gift" onclick="openGift(this,'5 July 2019')">🎁</div>
+  <div class="gift" onclick="openGift(this,'Love U')">🎁</div>
+  <div class="gift" onclick="openGift(this,'Love U Baby')">🎁</div>
  `;
  document.body.appendChild(giftBox);
 }
 function openGift(el,text){ 
   el.style.background = "#fff0f3";
+  el.style.fontSize = "14px";
   el.innerHTML="<p>"+text+"</p>"; 
 }
 </script>
